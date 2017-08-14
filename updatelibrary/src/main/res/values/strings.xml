@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">UpdateApp</string>
+    <string name="update_download_failed">下载失败</string>
+    <string name="update_download_failed_msg">下载失败</string>
+    <string name="update_download_start">准备下载</string>
+    <string name="update_download_processing">正在下载</string>
+    <string name="update_download_finish">下载完成，点击安装</string>
+    <string name="LHDAppUpdateExit">退出</string>
+    <string name="LHDQZAppUpdate">强制更新</string>
+</resources>

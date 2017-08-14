@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+	<string name="LHDBreak_Network">Please make sure you are connected to internet,update failed</string>
+	<string name="LHDUpdateTitle">发现新版本</string>
+	<string name="LHDNewVersion">Latest version: </string>
+	<string name="LHDUpdateContent">Update Content</string>
+	<string name="LHDUpdateSize">Update size: </string>
+	<string name="LHDTargetSize">Target size: </string>
+	<string name="LHDGprsCondition">(Warning: Not WIFI Condition)</string>
+	<string name="LHDUpdateNow">马上更新</string>
+	<string name="LHDAppUpdate">App updating</string>
+	<string name="LHDNotNow">以后再说</string>
+	<string name="LHDIgnore">忽略</string>
+	<string name="LHDMobileTip">温馨提示：应用正在使用移动数据流量</string>
+	<string name="LHDToast_IsUpdating">Updating....</string>
+	<string name="LHDDialog_InstallAPK">The lastest version has been downloaded, install now ?</string>
+	<string name="LHDUpdateCheck">2.6.0.1.20150312</string>
+    
+</resources>
