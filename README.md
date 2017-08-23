@@ -11,7 +11,7 @@
 ## 使用方法
 ### Gradle
 ```groovy
-compile 'com.lihaodong.appu pdate:updatelibrary:1.0.0'
+compile 'com.lihaodong.appupdate:updatelibrary:1.0.0'
 ```
 ### Maven
 ```groovy
@@ -31,7 +31,13 @@ compile 'com.lihaodong.appu pdate:updatelibrary:1.0.0'
 ## 调用
 
 ```
-APPUpdateAgent.forceUpdate(MainActivity.this,"获取版本号接口");
+APPUpdateAgent.forceUpdate(this,"获取版本号接口",new ExitInterface(){
+            @Override
+            public void exitApp() {
+                //可以自定义关闭事件
+                App.finishAllActivity();
+            }
+        });
 接口返回格式必须为如下格式：因为是为公司开发，所以格式比较统一
 {"ForcedUpdate":0,"Version":"3.3","UpdateMsg":"更新内容","Url":"http://clouddn.com/app/update.apk"}
 ```
@@ -43,7 +49,9 @@ APPUpdateAgent.forceUpdate(MainActivity.this,"获取版本号接口");
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 ```
+## 适配Android6.0
 
+关于6.0适配，请自行在调用API时申请WRITE_EXTERNAL_STORAGE权限，可以参加demo中的代码
 ## 友好的调试模式
 
 ```

@@ -5,6 +5,8 @@ import android.app.Application;
 import android.os.Build;
 import android.os.Bundle;
 
+import com.lihaodong.appupdate.APPUpdate;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,7 +26,7 @@ public class App extends Application{
         super.onCreate();
         App.context=this;
         registerActivityListener();
-
+        APPUpdate.initialize(getApplicationContext());
     }
     /**
      * 维护Activity 的list

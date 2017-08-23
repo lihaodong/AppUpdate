@@ -1,7 +1,6 @@
 package com.lihaodong.appupdate;
 
 import android.content.Context;
-import android.os.Handler;
 import android.text.TextUtils;
 
 import com.squareup.okhttp.Request;
@@ -14,14 +13,12 @@ import org.json.JSONObject;
  */
 
 public class APPUpdateAgent {
-    static Handler handler=new Handler(){};
     static ExitInterface mInter;
     /**
-     * @param context
      * @param url app接口地址
      */
-    public static void forceUpdate(final Context context, final String url,ExitInterface inter){
-        mInter=inter;
+    public static void forceUpdate(final Context context, final String url, ExitInterface exitInterface){
+        mInter=exitInterface;
         OkHttpClientManager.getAsyn(url, new OkHttpClientManager.ResultCallback<String>()
         {
             @Override
