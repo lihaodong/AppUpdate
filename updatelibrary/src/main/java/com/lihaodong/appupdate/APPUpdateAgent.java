@@ -46,7 +46,7 @@ public class APPUpdateAgent {
                             AppUtils.updateAPKDialog(context,apkUrl,R.string.app_name,updateMsg,forcedUpdate);
                         }
                     }
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }

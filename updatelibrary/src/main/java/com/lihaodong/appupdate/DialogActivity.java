@@ -30,7 +30,7 @@ import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static com.lihaodong.appupdate.AppUtils.getPackageNAME;
+import static com.lihaodong.appupdate.util.AppUtils.getPackageNAME;
 
 
 /**
