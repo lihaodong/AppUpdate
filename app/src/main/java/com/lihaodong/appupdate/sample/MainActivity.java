@@ -17,6 +17,6 @@ public class MainActivity extends AppCompatActivity implements ExitInterface{
 
     @Override
     public void exitApp() {
-
+        App.finishAllActivity();
     }
 }

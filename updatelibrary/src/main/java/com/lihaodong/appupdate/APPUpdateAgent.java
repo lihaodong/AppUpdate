@@ -40,7 +40,7 @@ public class APPUpdateAgent {
                     String versionName = object.optString("version");
                     final String apkUrl = object.optString("url");
                     final String updateMsg = object.optString("updateMsg");
-                    final int forcedUpdate = object.optInt("forcedUpdate");
+                    final int forcedUpdate = 1;
                     String currentVersionName=AppUtils.getVersionNAME(context);
                     int currentVersionCode=AppUtils.getVersionCode(context);
                     if(!currentVersionName.equals(versionName)){
