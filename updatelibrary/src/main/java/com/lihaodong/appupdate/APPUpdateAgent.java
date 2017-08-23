@@ -3,6 +3,7 @@ package com.lihaodong.appupdate;
 import android.content.Context;
 import android.text.TextUtils;
 
+import com.lihaodong.appupdate.util.AppUtils;
 import com.squareup.okhttp.Request;
 
 import org.json.JSONException;
@@ -38,7 +39,7 @@ public class APPUpdateAgent {
                     final String apkUrl = object.optString("url");
                     final String updateMsg = object.optString("updateMsg");
                     final int forcedUpdate = 1;
-                    String currentVersionName=AppUtils.getVersionNAME(context);
+                    String currentVersionName= AppUtils.getVersionNAME(context);
                     int currentVersionCode=AppUtils.getVersionCode(context);
                     if(!currentVersionName.equals(versionName)){
                         if(!TextUtils.isEmpty(url)){

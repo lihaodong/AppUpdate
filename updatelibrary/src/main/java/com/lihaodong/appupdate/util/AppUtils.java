@@ -1,9 +1,11 @@
-package com.lihaodong.appupdate;
+package com.lihaodong.appupdate.util;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+
+import com.lihaodong.appupdate.DialogActivity;
 
 /**
  * Created by lihaodong on 2017/4/21.

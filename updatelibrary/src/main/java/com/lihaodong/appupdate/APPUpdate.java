@@ -7,13 +7,40 @@ import android.content.Context;
  */
 
 public class APPUpdate {
-    public static Context mContext;
-    private APPUpdate() {
+    private Context mContext;
+    private String apkPath="";
+    private String serverVersionName="";
+    private boolean isForce = false; //是否强制更新
+    private int localVersionCode = 0;
+    private int serverVersionCode = 0;
+    private String localVersionName="";
+    private APPUpdate(Context context) {
+        this.mContext=context;
     }
-    public static void initialize(Context context) {
-        mContext=context;
+    public static APPUpdate initialize(Context context) {
+
+        return new APPUpdate(context);
     }
-    public static Context getContext() {
+    public APPUpdate apkPath(String apkPath){
+        this.apkPath = apkPath;
+        return this;
+    }
+
+    public APPUpdate serverVersionCode(int serverVersionCode){
+        this.serverVersionCode = serverVersionCode;
+        return this;
+    }
+
+    public APPUpdate serverVersionName(String  serverVersionName){
+        this.serverVersionName = serverVersionName;
+        return this;
+    }
+
+    public APPUpdate isForce(boolean  isForce){
+        this.isForce = isForce;
+        return this;
+    }
+    public Context getContext() {
         return mContext;
     }
 
