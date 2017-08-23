@@ -1,4 +1,3 @@
-![github](/res/mipmap-hdpi/ic_launcher.png) 
 # UpdateApp #
 
 安卓版本更新，适配6.0及7.0，是为公司开发的，如果需要集成，获取更新接口必须为如下格式。目前还不能自定义界面，期待下次更新！
@@ -8,7 +7,7 @@
 ## 使用方法
 ### Gradle
 ```groovy
-compile 'com.lihaodong.appupdate:updatelibrary:1.0.0'
+compile 'com.lihaodong.appu pdate:updatelibrary:1.0.0'
 ```
 ### Maven
 ```groovy
