@@ -24,14 +24,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
+import com.lihaodong.appupdate.util.AppUtils;
 import com.squareup.okhttp.Request;
 
 import java.io.File;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static com.lihaodong.appupdate.util.AppUtils.getPackageNAME;
-
 
 /**
  * Created by lihaodong on 2017/6/10.
@@ -164,7 +162,7 @@ public class DialogActivity extends Activity{
         Intent intent = new Intent(Intent.ACTION_VIEW);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            Uri contentUri = FileProvider.getUriForFile(this, getPackageNAME(getApplicationContext()) + ".fileprovider", file);
+            Uri contentUri = FileProvider.getUriForFile(this, AppUtils.getPackageNAME(getApplicationContext()) + ".fileprovider", file);
             intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
         } else {
             intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");

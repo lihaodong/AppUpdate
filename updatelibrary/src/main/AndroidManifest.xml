@@ -1,8 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
     package="com.lihaodong.appupdate">
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <application android:allowBackup="true" android:label="@string/app_name"
+    <application
+        android:label="@string/app_name"
         android:supportsRtl="true">
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -13,8 +15,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <activity android:name=".DialogActivity" android:theme="@style/AppTheme.NoActionBar"/>
-        <service android:name=".UpdateService"></service>
+        <activity
+            android:name=".DialogActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
