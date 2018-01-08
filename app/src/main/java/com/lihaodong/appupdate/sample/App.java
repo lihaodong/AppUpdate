@@ -27,6 +27,7 @@ public class App extends Application{
         App.context=this;
         registerActivityListener();
         APPUpdate.initialize(getApplicationContext());
+
     }
     /**
      * 维护Activity 的list

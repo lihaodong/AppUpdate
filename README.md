@@ -11,14 +11,14 @@
 ## 使用方法
 ### Gradle
 ```groovy
-compile 'com.lihaodong.appupdate:updatelibrary:1.0.0'
+compile 'com.lihaodong.appupdate:updatelibrary:1.0.0.3'
 ```
 ### Maven
 ```groovy
 <dependency>
   <groupId>com.lihaodong.appupdate</groupId>
   <artifactId>updatelibrary</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0.3</version>
   <type>pom</type>
 </dependency>
 ```
