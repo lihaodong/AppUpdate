@@ -19,6 +19,9 @@
         <activity
             android:name=".DialogActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DialogImageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

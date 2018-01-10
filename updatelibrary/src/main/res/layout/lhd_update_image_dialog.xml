@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#99232323">
+
+    <LinearLayout
+        android:id="@+id/lhd_update_frame"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:paddingBottom="8dp">
+
+        <!-- Title -->
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!--<ImageView-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/lhd_update_wifi_indicator"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:contentDescription="@string/LHDGprsCondition"-->
+            <!--android:src="@drawable/connect_mobile" />-->
+
+            <!--<TextView-->
+            <!--android:visibility="gone"-->
+            <!--android:id="@+id/tv_title"-->
+            <!--android:textSize="16sp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:text="@string/LHDUpdateTitle"-->
+            <!--android:textColor="#008bea" />-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/lhd_update_bg" />
+
+            <Button
+                android:id="@+id/lhd_update_id_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/lhd_update_button_close_bg_selector"
+                android:focusable="true"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:background="@drawable/lhd_update_dialog_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <!-- split -->
+            <!--<View-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="2dp"-->
+                <!--android:background="#008bea" />-->
+            <!-- Content -->
+
+            <ScrollView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lhd_update_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginTop="10dp"
+                        android:focusable="true"
+                        android:textColor="#000" />
+                </LinearLayout>
+            </ScrollView>
+
+            <TextView
+                android:id="@+id/lhd_update_mobile_tip"
+                android:layout_width="fill_parent"
+                android:layout_height="32dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:text="@string/LHDMobileTip"
+                android:textAppearance="?android:attr/textAppearance"
+                android:textColor="@android:color/holo_red_light"
+                android:visibility="gone" />
+
+
+            <com.daimajia.numberprogressbar.NumberProgressBar
+                android:id="@+id/number_progress_bar"
+                style="@style/NumberProgressBar_Default"
+                android:visibility="gone" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="#e1e1e1"/>
+            <LinearLayout
+                android:id="@+id/ll_bottom"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/lhd_update_id_ok"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/lhd_update_button_ok_bg_selector_image"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:textSize="16sp"
+                    android:text="@string/LHDUpdateNow"
+                    android:textColor="#0076D7" />
+                <View
+                    android:layout_width="0.3dp"
+                    android:layout_height="match_parent"
+                    android:background="#e1e1e1"/>
+                <TextView
+                    android:textSize="16sp"
+                    android:id="@+id/lhd_update_id_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/lhd_update_button_cancel_bg_selector_image"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="@string/LHDNotNow"
+                    android:textColor="#0076D7" />
+
+                <Button
+                    android:id="@+id/lhd_update_id_ignore"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/lhd_update_button_cancel_bg_selector"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:padding="12dp"
+                    android:text="@string/LHDIgnore"
+                    android:textColor="#AAABAF"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.lihaodong.appupdate.DialogActivity;
+import com.lihaodong.appupdate.DialogImageActivity;
 
 /**
  * Created by lihaodong on 2017/4/21.
@@ -71,7 +71,7 @@ public class AppUtils {
      * @param forcedUpdate
      */
     public static void updateAPKDialog(final Context context, final String apkurl, int titleName, String message,int forcedUpdate) throws Exception{
-        Intent i = new Intent(context,DialogActivity.class);
+        Intent i = new Intent(context,DialogImageActivity.class);
         i.putExtra("apkUrl",apkurl);
         i.putExtra("apkDes",message);
         i.putExtra("forcedUpdate",forcedUpdate);

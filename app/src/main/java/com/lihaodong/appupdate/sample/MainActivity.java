@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        APPUpdateAgent.forceUpdate(this,"http://api.yiboshi.com/api/app/getAppVersion?app=zklb&deviceType=1",new APPUpdateAgent.ExitInterface(){
+        APPUpdateAgent.forceUpdate(this,"http://api.yiboshi.com/api/app/getAppVersion?app=ybs&deviceType=1",new APPUpdateAgent.ExitInterface(){
             @Override
             protected void exitApp() {
                 App.finishAllActivity();
