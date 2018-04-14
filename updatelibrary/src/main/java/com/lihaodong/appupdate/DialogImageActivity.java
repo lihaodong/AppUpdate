@@ -23,7 +23,7 @@ import android.widget.Toast;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.lihaodong.appupdate.util.AppUtils;
-import com.squareup.okhttp.Request;
+import com.lihaodong.appupdate.util.DownloadUtil;
 
 import java.io.File;
 import java.util.Timer;
@@ -45,7 +45,7 @@ public class DialogImageActivity extends Activity{
     private int forcedUpdate;
     private WifiInfo wifiInfo = null;       //获得的Wifi信息
     private WifiManager wifiManager = null; //Wifi管理器
-//    private ImageView wifi_image;           //信号图片显示
+    //    private ImageView wifi_image;           //信号图片显示
     private int level;                      //信号强度值
     private Timer timer;
     private MyTimerTask mTimerTask;
@@ -92,66 +92,54 @@ public class DialogImageActivity extends Activity{
 //                    tv_title.setText("正在下载");
                     ll_bottom.setVisibility(View.GONE);
                     number_progress_bar.setVisibility(View.VISIBLE);
-                    OkHttpClientManager.downloadAsyn(
-                            apkUrl,
-                            filePath,
-                            new OkHttpClientManager.ResultCallback<Object>()
-                            {
-                                @Override
-                                public void onError(Request request, Exception e) {
-                                    isDowning=false;
-//                                    tv_title.setText("下载出错");
-                                    Toast.makeText(DialogImageActivity.this,"下载出错",Toast.LENGTH_SHORT).show();
-                                    ll_bottom.setVisibility(View.VISIBLE);
-                                    number_progress_bar.setVisibility(View.GONE);
-                                }
+                    DownloadUtil.getInstance().download(apkUrl, filePath, new DownloadUtil.OnDownloadListener() {
+                        @Override
+                        public void onDownloadSuccess(String path) {
+                            isDowning=false;
+                            DialogImageActivity.this.finish();
+                            installApk(new File(filePath+fileName));
+                        }
 
-                                @Override
-                                public void onResponse(Object response)
-                                {
-                                    isDowning=false;
-                                    DialogImageActivity.this.finish();
-                                    installApk(new File(filePath+fileName));
-                                }
+                        @Override
+                        public void onDownloading(int progress) {
+                            isDowning=true;
+                            number_progress_bar.setProgress((Integer) progress);
+                        }
 
-                                @Override
-                                public void onDownloading(Object progress) {
-                                    isDowning=true;
-                                    number_progress_bar.setProgress((Integer) progress);
-                                }
-                            });
+                        @Override
+                        public void onDownloadFailed() {
+                            isDowning=false;
+                            Toast.makeText(DialogImageActivity.this,"下载出错",Toast.LENGTH_SHORT).show();
+                            ll_bottom.setVisibility(View.VISIBLE);
+                            number_progress_bar.setVisibility(View.GONE);
+                        }
+                    });
                 } else if (forcedUpdate == 1) {
 //                    tv_title.setText("正在下载");
                     ll_bottom.setVisibility(View.GONE);
                     number_progress_bar.setVisibility(View.VISIBLE);
-                    OkHttpClientManager.downloadAsyn(
-                            apkUrl,
-                            filePath,
-                            new OkHttpClientManager.ResultCallback<Object>()
-                            {
-                                @Override
-                                public void onError(Request request, Exception e) {
-                                    isDowning=false;
-//                                    tv_title.setText("下载出错");
-                                    Toast.makeText(DialogImageActivity.this,"下载出错",Toast.LENGTH_SHORT).show();
-                                    ll_bottom.setVisibility(View.VISIBLE);
-                                    number_progress_bar.setVisibility(View.GONE);
-                                }
+                    DownloadUtil.getInstance().download(apkUrl, filePath, new DownloadUtil.OnDownloadListener() {
+                        @Override
+                        public void onDownloadSuccess(String path) {
+                            isDowning=false;
+                            DialogImageActivity.this.finish();
+                            installApk(new File(filePath+fileName));
+                        }
 
-                                @Override
-                                public void onResponse(Object response)
-                                {
-                                    isDowning=false;
-                                    DialogImageActivity.this.finish();
-                                    installApk(new File(filePath+fileName));
-                                }
+                        @Override
+                        public void onDownloading(int progress) {
+                            isDowning=true;
+                            number_progress_bar.setProgress((Integer) progress);
+                        }
 
-                                @Override
-                                public void onDownloading(Object progress) {
-                                    isDowning=true;
-                                    number_progress_bar.setProgress((Integer) progress);
-                                }
-                            });
+                        @Override
+                        public void onDownloadFailed() {
+                            isDowning=false;
+                            Toast.makeText(DialogImageActivity.this,"下载出错",Toast.LENGTH_SHORT).show();
+                            ll_bottom.setVisibility(View.VISIBLE);
+                            number_progress_bar.setVisibility(View.GONE);
+                        }
+                    });
                 }
 
             }

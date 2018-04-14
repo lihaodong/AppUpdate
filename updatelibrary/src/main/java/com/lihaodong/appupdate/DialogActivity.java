@@ -25,7 +25,7 @@ import android.widget.Toast;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.lihaodong.appupdate.util.AppUtils;
-import com.squareup.okhttp.Request;
+import com.lihaodong.appupdate.util.DownloadUtil;
 
 import java.io.File;
 import java.util.Timer;
@@ -95,64 +95,54 @@ public class DialogActivity extends Activity{
                     tv_title.setText("正在下载");
                     ll_bottom.setVisibility(View.GONE);
                     number_progress_bar.setVisibility(View.VISIBLE);
-                    OkHttpClientManager.downloadAsyn(
-                            apkUrl,
-                            filePath,
-                            new OkHttpClientManager.ResultCallback<Object>()
-                            {
-                                @Override
-                                public void onError(Request request, Exception e) {
-                                    isDowning=false;
-                                    tv_title.setText("下载出错");
-                                    ll_bottom.setVisibility(View.VISIBLE);
-                                    number_progress_bar.setVisibility(View.GONE);
-                                }
+                    DownloadUtil.getInstance().download(apkUrl, filePath, new DownloadUtil.OnDownloadListener() {
+                        @Override
+                        public void onDownloadSuccess(String path) {
+                            isDowning=false;
+                            DialogActivity.this.finish();
+                            installApk(new File(path));
+                        }
 
-                                @Override
-                                public void onResponse(Object response)
-                                {
-                                    isDowning=false;
-                                    DialogActivity.this.finish();
-                                    installApk(new File(filePath+fileName));
-                                }
+                        @Override
+                        public void onDownloading(int progress) {
+                            isDowning=true;
+                            number_progress_bar.setProgress((Integer) progress);
+                        }
 
-                                @Override
-                                public void onDownloading(Object progress) {
-                                    isDowning=true;
-                                    number_progress_bar.setProgress((Integer) progress);
-                                }
-                            });
+                        @Override
+                        public void onDownloadFailed() {
+                            isDowning=false;
+                            tv_title.setText("下载出错");
+                            ll_bottom.setVisibility(View.VISIBLE);
+                            number_progress_bar.setVisibility(View.GONE);
+                        }
+                    });
                 } else if (forcedUpdate == 1) {
                     tv_title.setText("正在下载");
                     ll_bottom.setVisibility(View.GONE);
                     number_progress_bar.setVisibility(View.VISIBLE);
-                    OkHttpClientManager.downloadAsyn(
-                            apkUrl,
-                            filePath,
-                            new OkHttpClientManager.ResultCallback<Object>()
-                            {
-                                @Override
-                                public void onError(Request request, Exception e) {
-                                    isDowning=false;
-                                    tv_title.setText("下载出错");
-                                    ll_bottom.setVisibility(View.VISIBLE);
-                                    number_progress_bar.setVisibility(View.GONE);
-                                }
+                    DownloadUtil.getInstance().download(apkUrl, filePath, new DownloadUtil.OnDownloadListener() {
+                        @Override
+                        public void onDownloadSuccess(String path) {
+                            isDowning=false;
+                            DialogActivity.this.finish();
+                            installApk(new File(path));
+                        }
 
-                                @Override
-                                public void onResponse(Object response)
-                                {
-                                    isDowning=false;
-                                    DialogActivity.this.finish();
-                                    installApk(new File(filePath+fileName));
-                                }
+                        @Override
+                        public void onDownloading(int progress) {
+                            isDowning=true;
+                            number_progress_bar.setProgress((Integer) progress);
+                        }
 
-                                @Override
-                                public void onDownloading(Object progress) {
-                                    isDowning=true;
-                                    number_progress_bar.setProgress((Integer) progress);
-                                }
-                            });
+                        @Override
+                        public void onDownloadFailed() {
+                            isDowning=false;
+                            tv_title.setText("下载出错");
+                            ll_bottom.setVisibility(View.VISIBLE);
+                            number_progress_bar.setVisibility(View.GONE);
+                        }
+                    });
                 }
 
             }
